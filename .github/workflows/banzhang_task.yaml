@@ -1,0 +1,36 @@
+name: bangzhang_task
+
+on:
+  push:
+#   schedule:
+#     - cron: '0 23 * * *'
+
+jobs:
+  build:
+    name: bangzhang_task
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+      
+    - name: Run a one-line script
+      run: echo Hello, world!
+        
+    - name: Setup Node
+      uses: actions/setup-node@v1
+      with:
+        node-version: '10.x'
+        
+    - name: 'Install NPM dependencies'
+      run: 
+        npm install
+        
+    - name: Run
+      run: npm start
+      env:
+        daily_url: ${{ secrets.daily_url }}  
+        send_mail: ${{ secrets.send_mail }}  
+        send_password: ${{ secrets.send_password }}  
+        to_mail: ${{ secrets.to_mail }}  
+
+    
