@@ -3,12 +3,12 @@ var phantom = require("phantom");
 
 
 
-const { daily_url, send_mail, send_password, to_mail } = process.env;
+const { DAILY_URL, SEND_MAIL, SEND_PASSWORD, TO_MAIL } = process.env;
 const reportPath = "./output/report.html";
 const send = require("gmail-send")({
-  user: send_mail,
-  pass: send_password,
-  to: to_mail,
+  user: SEND_MAIL,
+  pass: SEND_PASSWORD,
+  to: TO_MAIL,
   subject: "Daily Report",
   files: [
     {
@@ -31,7 +31,7 @@ async function news() {
     .then(function (page) {
       sitepage = page;
       return page.open(
-        daily_url
+        DAILY_URL
       );
     })
     .then(function (status) {
