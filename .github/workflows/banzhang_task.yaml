@@ -2,8 +2,8 @@ name: bangzhang_task
 
 on:
   push:
-#   schedule:
-#     - cron: '0 23 * * *'
+  schedule:
+    - cron: '31 15 * * *'
 
 jobs:
   build:
