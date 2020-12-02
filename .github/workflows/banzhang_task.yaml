@@ -3,7 +3,7 @@ name: bangzhang_task
 on:
   push:
   schedule:
-    - cron: '00 15 * * *'
+    - cron: '40 14 * * *'
     - cron: '00 22 * * *'
 
 
