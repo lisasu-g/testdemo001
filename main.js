@@ -1,5 +1,6 @@
 var cheerio = require("cheerio");
 var phantom = require("phantom");
+var moment = require("moment");
 
 
 
@@ -20,6 +21,17 @@ const send = require("gmail-send")({
 const fs = require("fs");
 
 async function news() {
+  
+  console.log(moment());
+  console.log(moment().weekday());
+  // 如果是周日，周六就啥也不干
+  if (moment().weekday() === 6 || moment().weekday() === 0) {
+    return;
+  }
+  // 交易日
+  console.log('交易日')
+  
+  
   fs.writeFileSync(reportPath, "", "utf8");
   var sitepage, phInstance;
   await phantom
