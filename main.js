@@ -26,6 +26,7 @@ async function news() {
   console.log(moment().weekday());
   // 如果是周日，周六就啥也不干
   if (moment().weekday() === 6 || moment().weekday() === 0) {
+    console.log('休息日')
     return;
   }
   // 交易日
